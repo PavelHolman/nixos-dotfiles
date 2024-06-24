@@ -123,6 +123,8 @@
     networkmanager
     networkmanager-l2tp
     xl2tpd
+    catppuccin-kde
+    kde-rounded-corners
     zsh
     zsh-you-should-use
     fzf
