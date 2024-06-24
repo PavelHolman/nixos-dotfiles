@@ -6,8 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      ./hardware-configuration.nix # Include the results of the hardware scan.
       ./nvidia.nix
       ./hyprland.nix
     ];
@@ -103,7 +103,7 @@
   users.users.pajax = {
     isNormalUser = true;
     description = "Pavel Holman";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -128,6 +128,10 @@
     zsh
     zsh-you-should-use
     fzf
+    alacritty
+    kitty
+    kitty-themes
+    starship
     dotnet-sdk_8
     dotnet-runtime_8
     dotnet-aspnetcore_8
@@ -139,7 +143,36 @@
     omnisharp-roslyn
   ];
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts = {
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [
+          "JetBrains Mono"
+        ];
+      };
+    };
+    packages = with pkgs; [
+      corefonts
+      inconsolata
+      ubuntu_font_family
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      jetbrains-mono
+      fira-code
+      fira-code-symbols
+      dina-font
+      proggyfonts
+      awesome
+      dejavu_fonts
+      nerdfonts
+      hack-font
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -167,6 +200,8 @@
       gll = "git log --graph --abbrev-commit --decorate --all --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) on %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset) %C(dim white)by %an%C(reset) %C(auto)%d%C(reset) %n%C(white)%s%C(reset)%n'";
     };
   };
+
+  programs.starship.enable = true;
 
   programs.fzf = {
     keybindings = true;
