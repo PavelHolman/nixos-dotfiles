@@ -12,9 +12,21 @@
       ./hyprland.nix
     ];
 
+  time.hardwareClockInLocalTime = true;
+
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
 
   environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
@@ -107,6 +119,7 @@
     wget
     google-chrome
     git
+    wayland-utils
     networkmanager
     networkmanager-l2tp
     xl2tpd
