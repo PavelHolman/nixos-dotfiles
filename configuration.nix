@@ -16,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -109,7 +109,12 @@
     dotnet-sdk_8
     dotnet-runtime_8
     dotnet-aspnetcore_8
+    docker
     zed-editor
+    cudaPackages.cudnn
+    discord
+    discordo
+    zoxide
   ];
 
   fonts.packages = with pkgs; [ nerdfonts ];
