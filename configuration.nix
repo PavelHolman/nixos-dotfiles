@@ -113,8 +113,8 @@
     zed-editor
     cudaPackages.cudnn
     discord
-    discordo
     zoxide
+    omnisharp-roslyn
   ];
 
   fonts.packages = with pkgs; [ nerdfonts ];
