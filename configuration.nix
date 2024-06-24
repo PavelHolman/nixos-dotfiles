@@ -28,6 +28,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # Use this shell to setup IPSec: nix-shell -p networkmanagerapplet --run nm-connection-editor
+  environment.etc."ipsec.secrets".text = ''
+  include ipsec.d/ipsec.nm-l2tp.secrets
+'';
 
   # Set your time zone.
   time.timeZone = "Europe/Prague";
@@ -103,6 +107,9 @@
     wget
     google-chrome
     git
+    networkmanager
+    networkmanager-l2tp
+    xl2tpd
     zsh
     zsh-you-should-use
     fzf
