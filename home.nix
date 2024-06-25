@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./git.nix
+  ];
+
   home.username = "pajax";
   home.homeDirectory = "/home/pajax";
 
@@ -32,12 +36,6 @@
   home.file = {};
 
   home.sessionVariables = {};
-
-  programs.git = {
-    enable = true;
-    userName = "Pavel Holman";
-    userEmail = "pavelholman@email.cz";
-  };
 
   programs.starship = {
     enable = true;
