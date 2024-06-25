@@ -3,11 +3,12 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
+    catppuccin.url = "github:catppuccin/nix";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, catppuccin, home-manager, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -16,13 +17,19 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration.nix ];
+        modules = [
+          ./configuration.nix
+          catppuccin.nixosModules.catppuccin
+        ];
       };
     };
     homeConfigurations = {
       pajax = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
       };
     };
   };

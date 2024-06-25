@@ -12,6 +12,9 @@
       ./hyprland.nix
     ];
 
+  catppuccin.enable = true;
+  catppuccin.flavor = "mocha";
+
   time.hardwareClockInLocalTime = true;
 
   # Bootloader.

@@ -13,6 +13,9 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
+
   home.packages = with pkgs; [
     zip
     unzip
