@@ -138,6 +138,7 @@
     kitty-themes
     starship
     jetbrains-toolbox
+    mono
     dotnet-sdk_8
     dotnet-runtime_8
     dotnet-aspnetcore_8
@@ -222,6 +223,10 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
+  };
+
+  environment.sessionVariables = {
+    DOTNET_ROOT = "${pkgs.dotnet-sdk}";
   };
 
   # Open ports in the firewall.
