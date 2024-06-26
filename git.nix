@@ -6,6 +6,7 @@
     userName = "Pavel Holman";
     ignores = [
       ".idea"
+      ".user"
     ];
   };
 
