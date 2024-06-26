@@ -4,6 +4,9 @@
   programs.git = {
     enable = true;
     userName = "Pavel Holman";
+    ignores = [
+      ".idea"
+    ];
   };
 
  home.file.".gitconfig".text = ''

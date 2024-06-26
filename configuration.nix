@@ -120,6 +120,8 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    ocs-url
+    xdg-utils
     google-chrome
     git
     wayland-utils
@@ -216,6 +218,11 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

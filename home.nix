@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     zip
     unzip
+    xdg-utils
 
     ripgrep
     eza
