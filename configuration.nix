@@ -18,9 +18,6 @@
   time.hardwareClockInLocalTime = true;
 
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
@@ -100,7 +97,10 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad.disableWhileTyping = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pajax = {
@@ -221,10 +221,6 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-  };
-
-  environment.sessionVariables = {
-    DOTNET_ROOT = "${pkgs.dotnet-sdk}";
   };
 
   # Open ports in the firewall.
