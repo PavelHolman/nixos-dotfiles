@@ -100,6 +100,7 @@
   services.libinput = {
     enable = true;
     touchpad.disableWhileTyping = true;
+    mouse.disableWhileTyping = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -141,6 +142,7 @@
     mono
     dotnetCorePackages.sdk_8_0_2xx
     docker
+    nodejs
     zed-editor
     cudaPackages.cudnn
     discord
