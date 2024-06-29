@@ -140,7 +140,8 @@
     starship
     jetbrains-toolbox
     mono
-    dotnetCorePackages.sdk_8_0_2xx
+    dotnetCorePackages.dotnet_8.sdk
+    dotnetCorePackages.dotnet_8.runtime
     docker
     nodejs
     zed-editor
