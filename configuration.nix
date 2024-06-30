@@ -100,7 +100,6 @@
   services.libinput = {
     enable = true;
     touchpad.disableWhileTyping = true;
-    mouse.disableWhileTyping = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -121,8 +120,10 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    libinput
     ocs-url
     xdg-utils
+    xdg-desktop-portal-wlr
     google-chrome
     git
     wayland-utils
