@@ -32,7 +32,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -115,6 +115,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.virtualbox.host.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -144,6 +146,7 @@
     dotnetCorePackages.dotnet_8.sdk
     dotnetCorePackages.dotnet_8.runtime
     docker
+    virtualbox
     nodejs
     zed-editor
     cudaPackages.cudnn
