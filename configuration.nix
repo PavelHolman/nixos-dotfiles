@@ -9,7 +9,6 @@
     [
       ./hardware-configuration.nix # Include the results of the hardware scan.
       ./nvidia.nix
-      ./hyprland.nix
     ];
 
   catppuccin.enable = true;
@@ -32,7 +31,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -89,7 +88,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -115,20 +114,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.enable = true;
-  users.extraGroups.vboxusers.members = [ "pajax" ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    jq
     wget
     libinput
     ocs-url
     xdg-utils
-    xdg-desktop-portal-wlr
     google-chrome
     git
     wayland-utils
@@ -145,6 +139,7 @@
     kitty-themes
     starship
     jetbrains-toolbox
+    jetbrains.rust-rover
     mono
     dotnetCorePackages.dotnet_8.sdk
     dotnetCorePackages.dotnet_8.runtime
