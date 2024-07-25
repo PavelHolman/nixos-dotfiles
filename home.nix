@@ -71,6 +71,7 @@
     theme = "Catppuccin-Mocha";
   };
 
+  programs.zsh.enable = true;
   programs.fzf.enable = true;
   programs.zoxide = {
     enable = true;

@@ -149,6 +149,7 @@
     zed-editor
     cudaPackages.cudnn
     discord
+    vesktop
     zoxide
     omnisharp-roslyn
   ];
@@ -226,6 +227,9 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-kde
+    ];
   };
 
   # Open ports in the firewall.
