@@ -139,13 +139,14 @@
     kitty-themes
     starship
     jetbrains-toolbox
-    jetbrains.rust-rover
+    gcc
+    rustup
     mono
     dotnetCorePackages.dotnet_8.sdk
     dotnetCorePackages.dotnet_8.runtime
     docker
     quickemu
-    nodejs
+    nodejs_22
     zed-editor
     cudaPackages.cudnn
     discord
