@@ -29,7 +29,6 @@
     eza
     fzf
 
-    alacritty
     zoxide
     starship
   ];
@@ -38,28 +37,28 @@
 
   home.sessionVariables = {};
 
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [
+        "git"
+        "rust"
+        "aliases"
+        "docker"
+      ];
+    };
+    shellAliases = {
+      gll = "git log --graph --abbrev-commit --decorate --all --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) on %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset) %C(dim white)by %an%C(reset) %C(auto)%d%C(reset) %n%C(white)%s%C(reset)%n'";
+    };
+  };
+
   programs.starship = {
     enable = true;
     settings = pkgs.lib.importTOML ./starship.toml;
-  };
-  programs.alacritty = {
-    enable = true;
-
-    settings = {
-      font.normal = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Regular";
-      };
-
-      window = {
-        dynamic_padding = true;
-        opacity = 0.9;
-        blur = true;
-      };
-
-      selection.save_to_clipboard = true;
-      cursor.style.blinking = "On";
-    };
   };
   programs.kitty = {
     enable = true;
@@ -71,8 +70,9 @@
     theme = "Catppuccin-Mocha";
   };
 
-  programs.zsh.enable = true;
-  programs.fzf.enable = true;
+  programs.fzf = {
+    enable = true;
+  };
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;

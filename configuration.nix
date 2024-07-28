@@ -29,6 +29,7 @@
 
   environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -131,10 +132,6 @@
     xl2tpd
     catppuccin-kde
     kde-rounded-corners
-    zsh
-    zsh-you-should-use
-    fzf
-    alacritty
     kitty
     kitty-themes
     starship
@@ -193,31 +190,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.zsh = {
-    enable = true;
-
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-        "rust"
-        "aliases"
-        "docker"
-      ];
-    };
-    shellAliases = {
-      gll = "git log --graph --abbrev-commit --decorate --all --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) on %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset) %C(dim white)by %an%C(reset) %C(auto)%d%C(reset) %n%C(white)%s%C(reset)%n'";
-    };
-  };
-
-  programs.starship.enable = true;
-
-  programs.fzf = {
-    keybindings = true;
-  };
 
   # List services that you want to enable:
 
