@@ -139,13 +139,11 @@
     dotnetCorePackages.dotnet_8.sdk
     dotnetCorePackages.dotnet_8.runtime
     docker
-    quickemu
     nodejs_22
     zed-editor
     cudaPackages.cudnn
     discord
     vesktop
-    zoxide
     omnisharp-roslyn
   ];
 
@@ -161,22 +159,7 @@
       };
     };
     packages = with pkgs; [
-      corefonts
-      inconsolata
-      ubuntu_font_family
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      liberation_ttf
       jetbrains-mono
-      fira-code
-      fira-code-symbols
-      dina-font
-      proggyfonts
-      awesome
-      dejavu_fonts
-      nerdfonts
-      hack-font
     ];
   };
 
