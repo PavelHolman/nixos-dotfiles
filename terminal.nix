@@ -55,6 +55,8 @@ in
     };
     eza = {
       enable = true;
+      icons = true;
+      git = true;
     };
     ripgrep = {
       enable = true;
@@ -64,6 +66,10 @@ in
     };
     btop = {
       enable = true;
+      package = pkgs.btop.override { cudaSupport = true; };
+      settings = {
+        theme_background = false;
+      };
     };
   };
 }
