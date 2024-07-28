@@ -102,6 +102,20 @@
     touchpad.disableWhileTyping = true;
   };
 
+  services.kanata = {
+    enable = true;
+    keyboards.internalKeyboard = {
+      devices = [];
+      extraDefCfg = "process-unmapped-keys yes";
+      config = ''
+        (defsrc caps)
+        (defalias escctrl (tap-hold 100 100 esc lctl))
+        (deflayer base @escctrl)
+      '';
+    };
+  };
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pajax = {
     isNormalUser = true;
