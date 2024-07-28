@@ -99,8 +99,18 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput = {
     enable = true;
-    touchpad.disableWhileTyping = true;
+    # The following does not work, hack with the config bellow
+    #touchpad.disableWhileTyping = true;
   };
+
+  environment.etc."X11/xorg.conf.d/90-touchpad.conf".text = ''
+    Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Option "Tapping" "on"
+        Option "DisableWhileTyping" "on"
+    EndSection
+  '';
 
   services.kanata = {
     enable = true;
