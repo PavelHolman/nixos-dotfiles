@@ -6,10 +6,10 @@
 
 {
   imports =
-    [
-      ./hardware-configuration.nix # Include the results of the hardware scan.
-      ./nvidia.nix
-    ];
+  [
+    ./hardware-configuration.nix # Include the results of the hardware scan.
+    ./nvidia.nix
+  ];
 
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
@@ -132,9 +132,6 @@
     xl2tpd
     catppuccin-kde
     kde-rounded-corners
-    kitty
-    kitty-themes
-    starship
     jetbrains-toolbox
     gcc
     rustup
