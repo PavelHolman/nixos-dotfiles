@@ -1,5 +1,13 @@
 { pkgs, ... }:
 
+let
+  you-should-use = pkgs.fetchFromGitHub {
+    owner = "MichaelAquilina";
+    repo = "zsh-you-should-use";
+    rev = "v1.8.0";
+    sha256 = "139njh3z63vv22lq1df05w1rgknx95fj5njz31zgsm3hr7izp5bw";
+  };
+in
 {
   programs = {
     kitty = {
@@ -24,6 +32,12 @@
           "docker"
         ];
       };
+      plugins = [
+        {
+          name = "you-should-use";
+          src = you-should-use;
+        }
+      ];
       shellAliases = {
         gll = "git log --graph --abbrev-commit --decorate --all --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) on %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset) %C(dim white)by %an%C(reset) %C(auto)%d%C(reset) %n%C(white)%s%C(reset)%n'";
       };
