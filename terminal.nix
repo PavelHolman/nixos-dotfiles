@@ -36,7 +36,12 @@
   };
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
     options = [ "--cmd cd" ];
+  };
+  programs.eza = {
+    enable = true;
+  };
+  programs.ripgrep = {
+    enable = true;
   };
 }

@@ -25,9 +25,6 @@
     zip
     unzip
     xdg-utils
-
-    ripgrep
-    eza
   ];
 
   home.file = {};
